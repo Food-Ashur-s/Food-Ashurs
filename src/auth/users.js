@@ -82,7 +82,7 @@ users.methods.passCompare = function(password) {
     .then(valid => valid ? this : null);
 };
 
-users.methods.generateToken = function(user) {
+users.statics.generateToken = function(user) {
   let userData = {
     username: user.email,
     capabilities: user.role,

@@ -31,9 +31,20 @@ authRouter.get('/users',(req, res) => {
     });
 });
 
-authRouter.get('/oauth', oauth, (req, res) => {
-  res.status(200).send(req.token);
+// authRouter.get('/oauth', oauth, (req, res) => {
+// console.log(req.token);
+//   res.status(200).send(req.token);
+// });
+
+authRouter.get('/oauth', (req,res,next) => {
+  oauth.authorize(req)
+    .then( token => {
+      console.log(req.token);
+      res.status(200).send(token);
+    })
+    .catch(next);
 });
+
 
 authRouter.get('/user', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
