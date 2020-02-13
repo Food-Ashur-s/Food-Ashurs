@@ -1,0 +1,10 @@
+/* eslint-disable strict */
+'use strict';
+
+module.exports = (req,res) => {
+  let error = { error: 'Resource Not Found' };
+  res.statusCode = 404;
+  res.statusMessage = 'Not Found';
+  res.write(JSON.stringify(error));
+  res.end();
+};
