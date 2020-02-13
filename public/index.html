@@ -8,12 +8,16 @@
     <a id="oauth" href="#">Login To The App</a>
   </body>
   <script>
-    let URL = 'https://github.com/login/oauth/authorize';
+  
+    let URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 
     let options = {
-      client_id: 'f6167d4a92a5624a94b8',
-      redirect_uri: 'http://localhost:3000/oauth',
-      scope: 'read:user',
+      // response_type:code,
+      client_id: '54228323733-dv9m3667fkrc94vlr2aa4b9lel1ogbq5.apps.googleusercontent.com',
+      redirect_uri: 'http://localhost:8080/oauth',
+      scope: 'openid profile email',
+      response_type: 'code',
+      access_type:online,
       state: '401appconsent'
     }
 
@@ -23,9 +27,10 @@
 
 
     let authURL = `${URL}?${QueryString}`;
-
+    console.log('authURL',authURL)
     
     let link = document.getElementById('oauth');
     link.setAttribute('href', authURL);
+    console.log('link' , link)
   </script>
 </html>
