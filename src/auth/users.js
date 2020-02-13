@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const users = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
+  email:{type: String , required : true},
   role: {type: String, required: true, enum:['donor', 'recipient']},
 });
 
@@ -50,6 +51,25 @@ users.pre('save', async function(){
     this.password = await bcrypt.hash(this.password, 10);
   }
 });
+users.statics.createFromOAuth = function(oauthUser) {
+  console.log('user', oauthUser);
+
+  if(!oauthUser) { return Promise.reject('Validation Error'); }
+
+  return this.findOne( {email: `${oauthUser.email}`} )
+    .then(user => {
+      if( !user ) { throw new Error('User Not Found'); }
+      console.log('Welcome Back', user.username);
+      return user;
+    })
+    .catch( error => {
+      console.log('Creating new user');
+      let username = oauthUser.email;
+      let password = 'none';
+      let email = oauthUser.email;
+      return this.create({username, password, email});
+    });
+};
 
 users.statics.authenticateBasic = function(auth) {
   return this.findOne({username:auth.username})
@@ -64,11 +84,12 @@ users.methods.passCompare = function(password) {
 
 users.methods.generateToken = function(user) {
   let userData = {
-    username: user.username,
+    username: user.email,
     capabilities: user.role,
   };
   console.log(userData);
   let token = jwt.sign(userData, process.env.SECRET);
+  console.log('klllllllllllllllllllllllll',token);
   return token;
   // let token = jwt.sign({ username: user.username}, process.env.SECRET);
   // return token;

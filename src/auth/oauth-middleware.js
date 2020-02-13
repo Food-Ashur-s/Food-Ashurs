@@ -76,7 +76,7 @@ const authorize = (req) => {
       code: code,
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: process.env.REDIRECT,
+      redirect_uri: process.env.API_SERVER,
       grant_type: 'authorization_code',
     })
     .then( response => {
@@ -96,11 +96,15 @@ const authorize = (req) => {
     })
     .then(oauthUser => {
       console.log('(4) CREATE ACCOUNT');
-      return Users.createFromOAuth(oauthUser);
-    })
-    .then(actualRealUser => {
-      console.log('(5) ALMOST ...', actualRealUser);
-      return actualRealUser.generateToken();
+      return Users.createFromOAuth(oauthUser)
+        .then(actualRealUser => {
+          let user = new Users();
+          console.log('(5) ALMOST ...', actualRealUser);
+          return user.generateToken(actualRealUser)
+            .then((token)=>{
+              req.token = token;
+            });
+        });
     })
     .catch(error => error);
 
