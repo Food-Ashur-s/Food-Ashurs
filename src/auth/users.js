@@ -82,14 +82,14 @@ users.methods.passCompare = function(password) {
     .then(valid => valid ? this : null);
 };
 
-users.statics.generateToken = function(user) {
+users.methods.generateToken = function(user) {
   let userData = {
     username: user.email,
     capabilities: user.role,
   };
   console.log(userData);
   let token = jwt.sign(userData, process.env.SECRET);
-  console.log('klllllllllllllllllllllllll',token);
+  // console.log('klllllllllllllllllllllllll',token);
   return token;
   // let token = jwt.sign({ username: user.username}, process.env.SECRET);
   // return token;

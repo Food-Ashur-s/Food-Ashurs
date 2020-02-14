@@ -99,14 +99,17 @@ const authorize = (req) => {
       console.log('(4) CREATE ACCOUNT');
       return Users.createFromOAuth(oauthUser)
         .then(actualRealUser => {
-          // let user = new Users();
+          let user = new Users();
           console.log('(5) ALMOST ...', actualRealUser);
-          return Users.generateToken(actualRealUser)
-            .then((token)=>{
-              console.log('finalllllllllllllllly', token);
-              req.token = token;
-            }).catch(error => error);
-        });
+          let newToken = user.generateToken(actualRealUser);
+          req.token = newToken;
+          // console.log(newToken);
+          // return Users.generateToken(actualRealUser)
+          // .then((token)=>{
+          //   console.log('finalllllllllllllllly', token);
+          //   req.token = token;
+          // }).catch(error => error);
+        }).catch(error => error);
     });
 
 };

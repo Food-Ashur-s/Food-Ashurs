@@ -40,7 +40,7 @@ authRouter.get('/oauth', (req,res,next) => {
   oauth.authorize(req)
     .then( token => {
       console.log(req.token);
-      res.status(200).send(token);
+      res.status(200).send(req.token);
     })
     .catch(next);
 });
