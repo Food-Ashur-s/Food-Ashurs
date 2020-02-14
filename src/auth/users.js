@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 
 /**
- * Sends a schema connected to the database 
+ * Sends a schema connected to the database
  * @param username {string} express the name for the user
  * @param password {string} express the password for the user
  * @param role {string} express the role for the user
@@ -110,10 +110,10 @@ users.methods.passCompare = function(password) {
 
 
 /**
- * generate a token  
+ * generate a token
  * @param username
  * @param capabilities
- * @returns {string} 
+ * @returns {string}
 
  */
 
