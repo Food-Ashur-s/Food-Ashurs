@@ -31,7 +31,7 @@ authRouter.post('/signup', (req, res,next) => {
 
 /**
  * This route give us  the token
- * @route POST/
+ * @route POST/signin
  * @returns {object} 200 -
  */
 
@@ -42,7 +42,7 @@ authRouter.post('/signin', basicAuth, (req, res) => {
 
 /**
  * This route show us  the list of users
- * @route GET/
+ * @route GET/users
  * @returns {object} 200 -
  */
 
@@ -53,10 +53,11 @@ authRouter.get('/users',(req, res) => {
     });
 });
 
-// authRouter.get('/oauth', oauth, (req, res) => {
-// console.log(req.token);
-//   res.status(200).send(req.token);
-// });
+/**
+ * This route show oauth
+ * @route GET/user
+ * @returns {object} 200 -
+ */
 
 authRouter.get('/oauth', (req,res,next) => {
   oauth.authorize(req)
@@ -71,7 +72,7 @@ authRouter.get('/oauth', (req,res,next) => {
 
 /**
  * This route show us  the name og the user
- * @route GET/
+ * @route GET/user
  * @returns {object} 200 -
  */
 
@@ -79,31 +80,68 @@ authRouter.get('/user', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
 });
 
+/** to get the users list from DB
+ * @route GET/public
+ * @returns {object} 200 -
+ */
+
 authRouter.get('/public', (req, res) => {
   Users.list()
     .then(data=>{
       res.status(200).json(data);
     });});
 
+/** to get a private user from DB
+ * @route GET/private
+ * @returns {object} 200 -
+ */
+
+
 authRouter.get('/private', basicAuth, (req, res) => {
   res.status(200).json(req.user);
 });
+
+/** to give th user access to just read the file
+ * @route GET/readonly
+ * @returns {String} 200 -
+ */
 
 authRouter.get('/readonly', bearerAuth, accessControlList('read'), (req, res) => {
   res.status(200).send('OK!');
 });
 
+/** to give th user create access Ability
+ * @route GET/create
+ * @returns {String} 200 -
+ */
+
 authRouter.get('/create', bearerAuth, accessControlList('create'), (req, res) => {
   res.status(200).send('OK!');
 });
+
+/** to give th user update access Ability
+ * @route GET/update
+ * @returns {String} 200 -
+ */
 
 authRouter.get('/update', bearerAuth, accessControlList('update'), (req, res) => {
   res.status(200).send('OK!');
 });
 
+/** to give th user delete access Ability
+ * @route GET/delete
+ * @returns {String} 200 -
+ */
+
 authRouter.get('/delete', bearerAuth, accessControlList('delete'), (req, res) => {
   res.status(200).send('OK!');
 });
+
+/**
+ * to give the user all access Ability
+ * @returns {String} 200 -
+ */
+
 authRouter.get('/everything', bearerAuth, accessControlList('read, create, update, delete'), (req, res) => {
   res.status(200).send('OK!');
 });
