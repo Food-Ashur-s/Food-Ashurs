@@ -56,11 +56,22 @@ users.statics.checkCapabilities = (capability, role)=>{
   //   console.log(val.includes(capability));
   // });
 };
+
+/**
+ * hash the password before save
+ */
+
 users.pre('save', async function(){
   if (!users.username) {
     this.password = await bcrypt.hash(this.password, 10);
   }
 });
+
+/**
+ * @param oauthUser
+ * @returns create {username, password, email}
+ */
+
 users.statics.createFromOAuth = function(oauthUser) {
   console.log('user', oauthUser);
 
@@ -130,11 +141,19 @@ users.methods.generateToken = function(user) {
   // return token;
 };
 
+/**
+ * to get all the DB list
+ */
+
 users.statics.list =  async function(){
   let results = await this.find({});
   return results;
 };
 
+/** to do the authenticate token
+ * @param token
+ * @returns Promise
+ */
 users.statics.authenticateToken = async function(token){
   try {
     let tokenObject = jwt.verify(token, process.env.SECRET);

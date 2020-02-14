@@ -14,6 +14,11 @@ module.exports = (req, res, next) => {
     break;
   }
 
+  /**
+   * 
+   * @param {String} authString
+   */
+
   function authBasic(authString) {
     let base64Buffer = Buffer.from(authString,'base64');
     let bufferString = base64Buffer.toString();
