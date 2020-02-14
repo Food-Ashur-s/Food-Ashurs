@@ -5,6 +5,16 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
+
+/**
+ * Sends a schema connected to the database 
+ * @param username {string} express the name for the user
+ * @param password {string} express the password for the user
+ * @param role {string} express the role for the user
+ * @returns {object}
+
+ */
+
 const users = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
@@ -71,16 +81,41 @@ users.statics.createFromOAuth = function(oauthUser) {
     });
 };
 
+/**
+ * compare the values
+ * @param username {string} express the username for the user
+ * @returns {boolean}
+
+ */
+
+
 users.statics.authenticateBasic = function(auth) {
   return this.findOne({username:auth.username})
     .then(user => user.passCompare(auth.password))
     .catch(console.error);
 };
 
+
+/**
+ * compare the values
+ * @param password {string} express the password for the user
+ * @returns {boolean}
+
+ */
+
 users.methods.passCompare = function(password) {
   return bcrypt.compare(password, this.password)
     .then(valid => valid ? this : null);
 };
+
+
+/**
+ * generate a token  
+ * @param username
+ * @param capabilities
+ * @returns {string} 
+
+ */
 
 users.methods.generateToken = function(user) {
   let userData = {

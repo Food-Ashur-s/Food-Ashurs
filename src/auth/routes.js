@@ -11,6 +11,14 @@ const bearerAuth = require('./bearer-auth-middleware.js');
 const accessControlList = require('./acl-middleware.js');
 
 
+// Routes
+/**
+ * This route give us  the token
+ * @route POST/
+ * @returns {object} 200 -
+ */
+
+
 authRouter.post('/signup', (req, res,next) => {
   let user = new Users(req.body);
   user.save()
@@ -20,9 +28,23 @@ authRouter.post('/signup', (req, res,next) => {
     }).catch(next);
 });
 
+
+/**
+ * This route give us  the token
+ * @route POST/
+ * @returns {object} 200 -
+ */
+
 authRouter.post('/signin', basicAuth, (req, res) => {
   res.status(200).send(req.token);
 });
+
+
+/**
+ * This route show us  the list of users
+ * @route GET/
+ * @returns {object} 200 -
+ */
 
 authRouter.get('/users',(req, res) => {
   Users.list()
@@ -45,6 +67,13 @@ authRouter.get('/oauth', (req,res,next) => {
     .catch(next);
 });
 
+
+
+/**
+ * This route show us  the name og the user
+ * @route GET/
+ * @returns {object} 200 -
+ */
 
 authRouter.get('/user', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
