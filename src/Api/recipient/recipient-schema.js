@@ -10,6 +10,21 @@ const recipientSchema = mongoose.Schema({
   identity : { type : String , required : true},
   contactNumber : {type : String , required : true},
   description : {type : String , required : false},
+},{toOBject:{virtuals: true}, toJSON: {virtuals: true}});
+
+recipientSchema.virtual('requestRecipient',{
+  ref: 'donor',
+  localField: 'requestType',
+  foreignField: 'type',
+  justOne: false,
+});
+
+recipientSchema.pre('findOne', function (){
+  try{
+    this.populate('requestRecipient');
+  }catch(e){
+    console.error(e);
+  }
 });
 
 module.exports = mongoose.model('recipient' , recipientSchema);
