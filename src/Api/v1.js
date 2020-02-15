@@ -14,9 +14,11 @@ function dynamicModel(req,res,next){
   switch (model) {
   case 'donor':
     req.model = donor;
+    next();
     return;
   case 'recipient':
     req.model = recipient;
+    next();
     return;
   default:
     next('invalid model');
@@ -67,9 +69,10 @@ function handelUpdate(req,res,next){
 
 function handelDelete(req,res,next){
   let id = req.params.id;
+  console.log(id);
   req.model.delete(id)
     .then(results =>{
-      res.json(results);
+      res.send('Item Deleted');
     }).catch(next);
 }
 module.exports = apiRoutes;

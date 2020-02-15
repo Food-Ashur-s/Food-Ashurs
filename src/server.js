@@ -18,8 +18,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.static('./public'));
-app.use(authRouter);
 app.use(apiRouter);
+app.use(authRouter);
 app.use(notFound);
 app.use(errorHandler);
 
@@ -27,7 +27,7 @@ module.exports = {
   server: app,
   start: port=>{
     let PORT = port || process.env.PORT || 3000;
-    app.listen(PORT, () => console.log('I am Listening'));
+    app.listen(PORT, () => console.log(`I am Listening on port: ${PORT}`));
 
   },
 };
