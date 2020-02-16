@@ -4,7 +4,9 @@
   "description": "- 401 project , app that take the extra food exceeded in the local restaurants and give its to the needed people or charities to save the wasted food and help others.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --coverage",
+    "lint": "eslint '**/*.js'",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
