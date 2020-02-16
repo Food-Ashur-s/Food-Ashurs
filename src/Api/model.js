@@ -7,7 +7,7 @@ class Model {
     this.schema = schema;
   }
   get(id){
-    if(id) return this.schema.findByOne(id);
+    if(id) return this.schema.findById(id);
     else return this.schema.find({});
   }
 
@@ -19,7 +19,7 @@ class Model {
     return this.schema.findByIdAndUpdate(id, record, {new: true});
   }
   delete(id){
-    return this.schema.deleteMany({id});
+    return this.schema.findByIdAndDelete(id);
   }
 }
 
