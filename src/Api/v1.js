@@ -53,22 +53,20 @@ function handelGetOne(req,res,next){
 }
 
 function handelPost(req,res,next){
-  // if (req.model === 'recipient') {
-  //   req.model.create(req.body)
-  //     .then(results=>{
-  //       donor.get()
-  //         .then(data =>{
-  //           Object.values.forEach(element => {
-  //             console.log(element);
-  //           });
-  //         });
-  //     });
-
-  // }else
-  req.model.create(req.body)
-    .then(results=>{
-      res.json(results);
-    }).catch(next);
+  if (req.params.model === 'recipient') {
+    req.model.create(req.body)
+      .then(results=>{
+        req.model.get(results._id)
+          .then(data=>{
+            res.json(data);
+          }).catch(next);
+      });
+  }else{
+    req.model.create(req.body)
+      .then(results=>{
+        res.json(results);
+      }).catch(next);
+  }
 }
 
 function handelUpdate(req,res,next){

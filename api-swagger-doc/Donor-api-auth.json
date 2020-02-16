@@ -1,0 +1,297 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Donor Auth Routes",
+    "version" : "0.1",
+    "title" : "defaultTitle"
+  },
+  "paths" : {
+    "/api/v1/donor" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Get all users inside donors schema",
+            "schema" : {
+              "$ref" : "#/definitions/Model3"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      },
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model2"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"sawsen restaurant\",\n            \"type\": \"eastern food\",\n            \"available_time\": \"1pm-10pm\",\n            \"amount\": \"8 people\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "schema" : {
+              "$ref" : "#/definitions/Model6"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      }
+    },
+    "/api/v1/donor/5e49101c1b9c2b089c5bef1e" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Get donor information for particular user then post",
+            "schema" : {
+              "$ref" : "#/definitions/Model4"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      },
+      "put" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model0"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"sawsen restaurant\",\n            \"type\": \"eastern food\",\n            \"available_time\": \"1pm-10pm\",\n            \"amount\": \"8 people\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "schema" : {
+              "$ref" : "#/definitions/Model5"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      }
+    },
+    "/api/v1/donor/5e4910b51b9c2b089c5bef1f" : {
+      "delete" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "text/html" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model1"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"sawsen restaurant\",\n            \"type\": \"eastern food\",\n            \"available_time\": \"1pm-10pm\",\n            \"amount\": \"8 people\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Delete a donor info , Passed",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "Secured" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Model0" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model1" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model2" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Results" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model3" : {
+      "properties" : {
+        "count" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "results" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Results"
+          }
+        }
+      }
+    },
+    "Model4" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model5" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model6" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

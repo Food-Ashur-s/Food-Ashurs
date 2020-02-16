@@ -1,0 +1,334 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Recipient Auth API",
+    "version" : "0.1",
+    "title" : "API-DOC"
+  },
+  "paths" : {
+    "/api/v1/recipient" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Get all users inside recipient"
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      },
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model2"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"ashar\",\n            \"requestType\": \"eastern food\",\n            \"identity\": \"person\",\n            \"contactNumber\": \"0777777777775\",\n            \"description\": \"i am so hungry\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "schema" : {
+              "$ref" : "#/definitions/Model3"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      }
+    },
+    "/api/v1/recipient/5e4911551b9c2b089c5bef20" : {
+      "get" : {
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Get recipient information for particular user inside",
+            "schema" : {
+              "$ref" : "#/definitions/Model4"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      },
+      "put" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model0"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"ashar\",\n            \"requestType\": \"eastern food\",\n            \"identity\": \"person\",\n            \"contactNumber\": \"********************\",\n            \"description\": \"i am so hungry\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "schema" : {
+              "$ref" : "#/definitions/Model5"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      },
+      "delete" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "text/html" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Model1"
+          },
+          "x-examples" : {
+            "application/json" : "{\n    \"name\": \"ashar\",\n            \"requestType\": \"eastern food\",\n            \"identity\": \"person\",\n            \"contactNumber\": \"********************\",\n            \"description\": \"i am so hungry\"\n}"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "delete infor for particular user",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "Secured" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "Secured" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Model0" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model1" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model2" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RequestRecipient" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model3" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "requestRecipient" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RequestRecipient"
+          }
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model4_RequestRecipient" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "available_time" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model4" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "requestRecipient" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Model4_RequestRecipient"
+          }
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Model5" : {
+      "properties" : {
+        "_id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "requestType" : {
+          "type" : "string"
+        },
+        "identity" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "__v" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
