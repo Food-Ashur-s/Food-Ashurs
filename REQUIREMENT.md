@@ -12,7 +12,7 @@ ________________________________________________________________________________
    **Delete the recipients and the donors.**
  
  ### OUT
-  **No way to take mony from the recipients to the donors.**
+  **No way to take money from the recipients to the donors.**
 _________________________________________________________________________________________________
 ## Minimum Viable Product
 the MVP For this project is let the donor and the recipient create an account and they can find  each other through the app and they allow to contact to each other and see the types of food and the available time and any of them can add update delete.

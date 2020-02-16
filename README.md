@@ -1,24 +1,24 @@
 # Food-Ashurs
 - 401 project , app that take the extra food exceeded in the local restaurants and give its to the needed people or charities to save the wasted food and help others. 
 
-==================================================
+_________________________________________________________________________________________________
 
 ## Wire-Frame
 - WireFrame ![alt text](assest/group.jpg)
 - check list ![alt text](assest/group-check.jpg)
 
-==================================================
+_________________________________________________________________________________________________
 ## Curuent Version (0.0.1)
 * The Current version of this program is designed to create, read, update, delete and return data that used to select the food for client deppend on what hw choose 
 * This API was designed to be extensible, so that multiple match types and scorecards/data-books can be supported in the future
 
 
-==================================================
+__________________________________________________________________________________________________
 ## Architecture
  ![alt text](assest/diagram.png)
 
 
-=================================================
+_________________________________________________________________________________________________
 
 ## Schema / Schema Diagram
 
@@ -26,7 +26,7 @@
  ![alt text](assest/schema.PNG)
 
 
-=================================================
+_________________________________________________________________________________________________
 
 ## Routes 
 ### POST api/v1/signup
