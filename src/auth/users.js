@@ -12,9 +12,7 @@ const mongoose = require('mongoose');
  * @param password {string} express the password for the user
  * @param role {string} express the role for the user
  * @returns {object}
-
  */
-
 const users = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
@@ -61,6 +59,11 @@ users.pre('save', async function(){
     this.password = await bcrypt.hash(this.password, 10);
   }
 });
+
+/**
+ * @param {object}
+ * function for Oauth level for google Oauth by return the user info using his/her email
+ */
 users.statics.createFromOAuth = function(oauthUser) {
   console.log('user', oauthUser);
 
@@ -85,10 +88,7 @@ users.statics.createFromOAuth = function(oauthUser) {
  * compare the values
  * @param username {string} express the username for the user
  * @returns {boolean}
-
  */
-
-
 users.statics.authenticateBasic = function(auth) {
   return this.findOne({username:auth.username})
     .then(user => user.passCompare(auth.password))
@@ -100,9 +100,7 @@ users.statics.authenticateBasic = function(auth) {
  * compare the values
  * @param password {string} express the password for the user
  * @returns {boolean}
-
  */
-
 users.methods.passCompare = function(password) {
   return bcrypt.compare(password, this.password)
     .then(valid => valid ? this : null);
@@ -113,10 +111,8 @@ users.methods.passCompare = function(password) {
  * generate a token
  * @param username
  * @param capabilities
- * @returns {string}
-
+ * @returns {Object}
  */
-
 users.methods.generateToken = function(user) {
   let userData = {
     username: user.email,
@@ -130,11 +126,18 @@ users.methods.generateToken = function(user) {
   // return token;
 };
 
+/**
+ * Return all users information inside our Database
+ */
 users.statics.list =  async function(){
   let results = await this.find({});
   return results;
 };
 
+/**
+ * Static method for signin process to generate the token again for a particular user to verify it
+ * @param {String} token
+ */
 users.statics.authenticateToken = async function(token){
   try {
     let tokenObject = jwt.verify(token, process.env.SECRET);
