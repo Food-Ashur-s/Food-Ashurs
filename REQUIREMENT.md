@@ -37,4 +37,4 @@ ________________________________________________________________________________
   1. test 
   we did that to improve our work .
   2. private Chat 
-   we did that additional on out work to let the users talk to each other.
+   we did that additional on our work to let the users talk to each other.
