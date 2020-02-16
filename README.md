@@ -28,6 +28,38 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________
 
+## Tree of our Project
+
+```
+├── package-lock.json
+├── package.json
+├── public
+│   └── index.html
+└── src
+    ├── Api
+    │   ├── donor
+    │   │   ├── donor-schema.js
+    │   │   └── donor.js
+    │   ├── model.js
+    │   ├── recipient
+    │   │   ├── recipient-schema.js
+    │   │   └── recipient.js
+    │   └── v1.js
+    ├── auth
+    │   ├── acl-middleware.js
+    │   ├── basic-auth-middleware.js
+    │   ├── bearer-auth-middleware.js
+    │   ├── oauth-middleware.js
+    │   ├── routes.js
+    │   └── users.js
+    ├── middleware
+    │   ├── 404.js
+    │   └── 500.js
+    └── server.js
+```
+
+__________________________________________________________________________________________________
+
 ## Routes 
 ### POST api/v1/signup
 * Provide username , password , email , role type as JSON
