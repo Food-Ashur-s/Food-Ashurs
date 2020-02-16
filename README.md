@@ -4,8 +4,8 @@
 ==================================================
 
 ## Wire-Frame
-- WireFrame ![Alt Text](https://ibb.co/dfVjG4h)
-- check list ![Alt Text](https://ibb.co/zZfTnm8)
+- WireFrame ![alt text](assest/group.jpg)
+- check list ![alt text](assest/group-check.jpg)
 
 ==================================================
 ## Curuent Version (0.0.1)
@@ -15,7 +15,7 @@
 
 ==================================================
 ## Architecture
- ![Alt Text](https://ibb.co/L9KWJ4c)
+ ![alt text](assest/diagram.png)
 
 
 =================================================
@@ -23,7 +23,7 @@
 ## Schema / Schema Diagram
 
 #### Currently Deployed Schema Diagram
- ![Alt Text]()
+ ![Image]()
 
 
 =================================================
