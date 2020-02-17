@@ -107,6 +107,7 @@ Example response:
         "email" : "usertwo@gmail.com",
         "role" : "recipient",
         "__v" : 0
+}
 
 ```
 
