@@ -8,7 +8,6 @@ const morgan = require('morgan');
 const errorHandler = require( './middleware/500.js');
 const notFound = require( './middleware/404.js' );
 const authRouter = require('./auth/routes.js');
-
 // Prepare the express app
 const app = express();
 
@@ -21,6 +20,7 @@ app.use(express.static('./public'));
 app.use(authRouter);
 app.use(notFound);
 app.use(errorHandler);
+
 
 /**
  * to fire our server and exports it

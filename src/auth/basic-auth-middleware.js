@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
   }
 
   /**
-   * 
+   *
    * @param {String} authString
    */
 
