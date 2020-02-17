@@ -71,77 +71,61 @@ authRouter.get('/oauth', (req,res,next) => {
 
 
 /**
- * This route show us  the name og the user
- * @route GET/user
+ * This route show us  the name of the user
+ * @route GET/
  * @returns {object} 200 -
  */
-
 authRouter.get('/user', bearerAuth, (req, res) => {
   res.status(200).json(req.user);
 });
 
-/** to get the users list from DB
- * @route GET/public
- * @returns {object} 200 -
+/**
+ * Show all users stored in our Database
  */
-
 authRouter.get('/public', (req, res) => {
   Users.list()
     .then(data=>{
       res.status(200).json(data);
     });});
 
-/** to get a private user from DB
- * @route GET/private
- * @returns {object} 200 -
+/**
+ * Show the user information for bearer level
  */
-
-
 authRouter.get('/private', basicAuth, (req, res) => {
   res.status(200).json(req.user);
 });
 
-/** to give th user access to just read the file
- * @route GET/readonly
- * @returns {String} 200 -
+/**
+ * route for readonly ACL with bearer Auth
  */
-
 authRouter.get('/readonly', bearerAuth, accessControlList('read'), (req, res) => {
   res.status(200).send('OK!');
 });
 
-/** to give th user create access Ability
- * @route GET/create
- * @returns {String} 200 -
+/**
+ * route for create ACL with bearer Auth
  */
-
 authRouter.get('/create', bearerAuth, accessControlList('create'), (req, res) => {
   res.status(200).send('OK!');
 });
 
-/** to give th user update access Ability
- * @route GET/update
- * @returns {String} 200 -
+/**
+ * route for Update ACL with bearer Auth
  */
-
 authRouter.get('/update', bearerAuth, accessControlList('update'), (req, res) => {
   res.status(200).send('OK!');
 });
 
-/** to give th user delete access Ability
- * @route GET/delete
- * @returns {String} 200 -
+/**
+ * route for Delete ACL with bearer Auth
  */
-
 authRouter.get('/delete', bearerAuth, accessControlList('delete'), (req, res) => {
   res.status(200).send('OK!');
 });
 
 /**
- * to give the user all access Ability
- * @returns {String} 200 -
+ * route for All CRUD ACL with bearer Auth
  */
-
 authRouter.get('/everything', bearerAuth, accessControlList('read, create, update, delete'), (req, res) => {
   res.status(200).send('OK!');
 });

@@ -4,6 +4,9 @@
 'use strict';
 const mongoose = require('mongoose');
 
+/**
+ * recipientSchema
+ */
 const recipientSchema = mongoose.Schema({
   name : { type : String , required : true},
   requestType : {type : String , required : true , enum : ['fast food', 'desserts', 'eastern food']},
@@ -12,6 +15,9 @@ const recipientSchema = mongoose.Schema({
   description : {type : String , required : false},
 },{toOBject:{virtuals: true}, toJSON: {virtuals: true}});
 
+/**
+ * the virtual side in Donor schema
+ */
 recipientSchema.virtual('requestRecipient',{
   ref: 'donor',
   localField: 'requestType',
@@ -19,6 +25,10 @@ recipientSchema.virtual('requestRecipient',{
   justOne: false,
 });
 
+/**
+ * connect the database and make it ready before anything else
+ *
+ */
 recipientSchema.pre('findOne', function (){
   try{
     this.populate('requestRecipient');

@@ -34,7 +34,12 @@ apiRoutes.get('/api/v1/:model/:id' , handelGetOne);
 apiRoutes.put('/api/v1/:model/:id' , handelUpdate);
 apiRoutes.delete('/api/v1/:model/:id' , handelDelete);
 
-
+/**
+ * Retrieve all users from database
+ * @param {object} req
+ * @param {object} res
+ * @param {MW} next
+ */
 function handelGetAll(req,res,next){
   req.model.get()
     .then(results =>{
@@ -44,6 +49,12 @@ function handelGetAll(req,res,next){
     }).catch(next);
 }
 
+/**
+ * Retrive one user information
+ * @param {Object} req
+ * @param {object} res
+ * @param {MW} next
+ */
 function handelGetOne(req,res,next){
   let id = req.params.id;
   req.model.get(id)
@@ -52,25 +63,35 @@ function handelGetOne(req,res,next){
     }).catch(next);
 }
 
+/**
+ * Post a user info then get all informayion based on that user
+ * @param {Object} req
+ * @param {object} res
+ * @param {MW} next
+ */
 function handelPost(req,res,next){
-  // if (req.model === 'recipient') {
-  //   req.model.create(req.body)
-  //     .then(results=>{
-  //       donor.get()
-  //         .then(data =>{
-  //           Object.values.forEach(element => {
-  //             console.log(element);
-  //           });
-  //         });
-  //     });
-
-  // }else
-  req.model.create(req.body)
-    .then(results=>{
-      res.json(results);
-    }).catch(next);
+  if (req.params.model === 'recipient') {
+    req.model.create(req.body)
+      .then(results=>{
+        req.model.get(results._id)
+          .then(data=>{
+            res.json(data);
+          }).catch(next);
+      });
+  }else{
+    req.model.create(req.body)
+      .then(results=>{
+        res.json(results);
+      }).catch(next);
+  }
 }
 
+/**
+ * Update user's info based on ID
+ * @param {Object} req
+ * @param {Object} res
+ * @param {MW} next
+ */
 function handelUpdate(req,res,next){
   let id = req.params.id;
   req.model.update(id, req.body)
@@ -79,6 +100,12 @@ function handelUpdate(req,res,next){
     }).catch(next);
 }
 
+/**
+ * Remove one user from Database based on ID
+ * @param {Object} req
+ * @param {Object} res
+ * @param {MW} next
+ */
 function handelDelete(req,res,next){
   let id = req.params.id;
   console.log(id);
