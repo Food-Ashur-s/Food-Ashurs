@@ -146,4 +146,5 @@ authRouter.get('/everything', bearerAuth, accessControlList('read, create, updat
   res.status(200).send('OK!');
 });
 
+
 module.exports = authRouter;
