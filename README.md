@@ -64,6 +64,13 @@ ________________________________________________________________________________
 ### POST api/v1/signup
 * Provide username , password , email , role type as JSON
 
+{"username": "userone", "password": "userpassword", "email" : "userone@gmail.com" }
+
+This route will create a new user by providing a username, password, email in the body of the request. Creating a new user is required to store and access data later. This route must be completed before attempting to use the signin route.
+
+A token will be returned that will only be used for the api/signin route. after signing-in, you will receive a new token that will be a reference for all future routes.
+
+
 
 * Example Response (token) :
 ```
@@ -74,6 +81,10 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 ###### Required Data:
 * Authorization header
 * Provide username and password as JSON
+
+This route will require an authorization header that needs to include the username:password of the specific user to be authenticated. Signing in will return a brand new token that will be used for future user ID reference.
+
+
 * Example response:
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWwuY29tIiwiY2FwYWJpbGl0aWVzIjoiZG9ub3IiLCJpYXQiOjE1ODE4NDcwODh9.mWg7cX9DslxPfregEp_japAMEf0jTswTxnpLDAjguiU
@@ -81,6 +92,8 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 ```
 
 ### GET api/v1/users
+
+to Read the Uers that signin on our application 
 
 Example response:
 ```javascript
@@ -113,6 +126,8 @@ Example response:
 
 ### CRUD api/v1/donor
 
+can get , post , update ,delete on this route.
+
 Example response:
 ```javascript
 {
@@ -128,6 +143,8 @@ Example response:
 
 ### CRUD api/v1/recipient
 
+can get , post , update ,delete on this route.
+
 Example response:
 
 ```javascript
@@ -141,6 +158,15 @@ Example response:
         "__v" : 0
 }
 ```
+
+# Testing
+
+### Testing with mockRequest
+- jest
+- eslint
+#### test all the route and the CRUD method
+
+
 
 
 
