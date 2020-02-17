@@ -83,7 +83,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 ### GET api/v1/users
 
 Example response:
-```
+```javascript
 {
         "_id" : ObjectId("5e4660d1bec8a4107c1867e3"),
         "username" : "dodo",
