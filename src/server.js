@@ -23,6 +23,11 @@ app.use(authRouter);
 app.use(notFound);
 app.use(errorHandler);
 
+
+/**
+ * to fire our server and exports it
+ */
+
 module.exports = {
   server: app,
   start: port=>{

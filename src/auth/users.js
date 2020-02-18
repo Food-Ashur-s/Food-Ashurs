@@ -44,6 +44,11 @@ users.statics.checkCapabilities = (capability, role)=>{
   }
 
 };
+
+/**
+ * hash the password before save
+ */
+
 users.pre('save', async function(){
   if (!users.username) {
     this.password = await bcrypt.hash(this.password, 10);

@@ -31,7 +31,7 @@ authRouter.post('/signup', (req, res,next) => {
 
 /**
  * This route give us  the token
- * @route POST/
+ * @route POST/signin
  * @returns {object} 200 -
  */
 
@@ -42,7 +42,7 @@ authRouter.post('/signin', basicAuth, (req, res) => {
 
 /**
  * This route show us  the list of users
- * @route GET/
+ * @route GET/users
  * @returns {object} 200 -
  */
 
@@ -53,10 +53,11 @@ authRouter.get('/users',(req, res) => {
     });
 });
 
-// authRouter.get('/oauth', oauth, (req, res) => {
-// console.log(req.token);
-//   res.status(200).send(req.token);
-// });
+/**
+ * This route show oauth
+ * @route GET/user
+ * @returns {object} 200 -
+ */
 
 authRouter.get('/oauth', (req,res,next) => {
   oauth.authorize(req)
