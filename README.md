@@ -7,7 +7,8 @@ ________________________________________________________________________________
 * The Current version of this program is designed to create, read, update, delete and return data that used to select the food for client deppend on what hw choose 
 * This API was designed to be extensible, so that multiple match types and scorecards/data-books can be supported in the future
 
-
+- Applicatio Repo: [https://github.com/Food-Ashur-s/Food-Ashurs/tree/master]
+- Chat Repo : [https://github.com/Food-Ashur-s/Food-Chat]
 __________________________________________________________________________________________________
 ## Architecture
 The base technologies are node.js server, node.http module, express middleware, and a mongo database
@@ -47,6 +48,12 @@ wireFrame             |  checklist
 :-------------------------:|:-------------------------:
 ![alt text](assest/group.jpg) |   ![alt text](assest/group-check.jpg) 
 _________________________________________________________________________________________________
+
+## Trello
+ Link: [https://trello.com/b/oxTEvJTl/food-ashurs]
+
+_______________________________________________________________________________________________
+
 ## Tree of our Project
 
 ```
@@ -112,18 +119,10 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 
 ### GET api/v1/users
 
-to Read the Uers that signin on our application 
+to Read the Users that signin on our application 
 
 Example response:
 ```javascript
-{
-        "_id" : ObjectId("5e4660d1bec8a4107c1867e3"),
-        "username" : "dodo",
-        "role" : "donor",
-        "email" : "s23horaora96n@hotmail.com",
-        "password" : "$2a$10$B43S/MAg00kleHSjodBCNeIvM0lWqv7coXbDtKJ7kaQFbS0muWbXa",
-        "__v" : 0
-}
 {
         "_id" : ObjectId("5e491a81ff54ad47735fc19d"),
         "username" : "userone",
@@ -143,7 +142,7 @@ Example response:
 
 ```
 
-### CRUD api/v1/donor
+## CRUD api/v1/donor
 
 ###### GET/api/v1/donor
 Returns an object with 2 keys: count (number) and results (array of objects/records from the database)
@@ -178,7 +177,7 @@ Returns an object with 2 keys: count (number) and results (array of objects/reco
 ```
 
 
-### CRUD api/v1/recipient
+## CRUD api/v1/recipient
 
 ###### GET/api/v1/recipient
 Returns an object with 2 keys: count (number) and results (array of objects/records from the database)
@@ -217,8 +216,27 @@ Example response:
 ```
 
 # Testing
-
 ### Testing with mockRequest
 - jest
 - eslint
 #### test all the route and the CRUD method
+
+## Resources
+- Chat Channel :
+1. Resource: [https://github.com/LTUC/amman-javascript-401d1/tree/master/class-17]
+2. Resource: [https://www.youtube.com/watch?v=Ass3WWasUWo]
+- Google Api : [https://developers.google.com/identity/protocols/OAuth2]
+- swagger to test our App : [https://inspector.swagger.io/builder]
+
+## Group Members
+- Ayman Khawaldeh : [https://github.com/aymankhawaldeh]
+- Qusai Hanktah : [https://github.com/Qusai-alhanaktah]
+- Nawal Suliman : [https://github.com/Nsuliman]
+- As-Har Oran : [https://github.com/ASHARALORAN96]
+
+## Communication:
+ We will communicate and share resources through a group slack channel. We will organize tasks through Trello.
+We will host an internal check-in meeting each morning for each member to update the team on their progress on any/all tasks or deliverables. Any edits to the project plan will be made as a result of these check-ins. We will conclude with a reflection meeting and a final update of our Trello board. We will participate in daily standups with Instructors.
+
+## Technology and Tools  :
+ The Organization will be created by Nawal, with all other members added as admin users. The Github repository will be initialized by Travis, with all other members added as collaborators. The Trello board will be created by Nawal, with all other members added as admin users. We will deploy our web app through Heroku.
