@@ -10,7 +10,26 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________
 ## Architecture
- ![alt text](assest/diagram.png)
+The base technologies are node.js server, node.http module, express middleware, and a mongo database
+ ![alt text](assest/diagram.png) 
+
+ ###### MiddleWare
+ - basic auth middleware leverages two npm modules (bcrypt, jsonwebtoken
+ - oauth middleware 
+ - bearer middleware 
+ - access control middleware 
+ - A custom handle-errors module implements and extends the http-errors npm middleware package
+
+ 
+##### Model 
+- The Application has a Model as constructor as a dynamic model 
+
+
+ ###### Mongoose 
+ Use this Method to create a new Schema in Mongo DataBase to execute CRUD operations on mongo documents.
+
+ ![alt text](assest/mongoose-frame.PNG)
+
 
 
 __________________________________________________________________________________________________
@@ -126,9 +145,27 @@ Example response:
 
 ### CRUD api/v1/donor
 
-can get , post , update ,delete on this route.
+###### GET/api/v1/donor
+Returns an object with 2 keys: count (number) and results (array of objects/records from the database)
 
-Example response:
+###### GET/api/v1/donor/ID
+- Takes an ID as a route parameter
+- Returns a single object (the record from the database)
+
+###### POST/api/v1/donor
+- Accepts a full record object to be added to the DB as the request body
+- Returns a single object (the record added to the database)
+
+###### PUT/api/v1/donor/ID
+- Takes an ID as a route parameter
+- Accepts a full record, including id, to be updated as the request body
+- Returns a single object (the record as updated in the database)
+
+###### DELETE/api/v1/donot/ID
+- Takes an ID as a route parameter
+- Returns undefined or null (the record is no longer in the database
+
+#### Example response:
 ```javascript
 {
         "_id" : ObjectId("5e491b4dff54ad47735fc1a0"),
@@ -142,6 +179,26 @@ Example response:
 
 
 ### CRUD api/v1/recipient
+
+###### GET/api/v1/recipient
+Returns an object with 2 keys: count (number) and results (array of objects/records from the database)
+
+###### GET/api/v1/recipient/ID
+- Takes an ID as a route parameter
+- Returns a single object (the record from the database)
+
+###### POST/api/v1/recipient
+- Accepts a full record object to be added to the DB as the request body
+- Returns a single object (the record added to the database)
+
+###### PUT/api/v1/recipient/ID
+- Takes an ID as a route parameter
+- Accepts a full record, including id, to be updated as the request body
+- Returns a single object (the record as updated in the database)
+
+###### DELETE/api/v1/recipient/ID
+- Takes an ID as a route parameter
+- Returns undefined or null (the record is no longer in the database
 
 can get , post , update ,delete on this route.
 
@@ -165,9 +222,3 @@ Example response:
 - jest
 - eslint
 #### test all the route and the CRUD method
-
-
-
-
-
-
