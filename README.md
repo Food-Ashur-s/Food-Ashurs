@@ -1,33 +1,33 @@
 # Food-Ashurs
-- 401 project , app that take the extra food exceeded in the local restaurants and give its to the needed people or charities to save the wasted food and help others. 
+- Application that takes extra food from local restaurants and gives it to people or charities of need.  This helps save wasted food and assists in the wellness of the local community. 
 
 _________________________________________________________________________________________________
 
-## Curuent Version (0.0.1)
-* The Current version of this program is designed to create, read, update, delete and return data that used to select the food for client deppend on what hw choose 
-* This API was designed to be extensible, so that multiple match types and scorecards/data-books can be supported in the future
+## Current Version (0.0.1)
+* The Current version of this application is designed to create, read, update, and delete data that is used to select food for clients, depending on what they choose
+* This API was designed to be extensible, so that multiple match types and data sources can be supported in future installments
 
-- Applicatio Repo: [https://github.com/Food-Ashur-s/Food-Ashurs/tree/master]
-- Chat Repo : [https://github.com/Food-Ashur-s/Food-Chat]
+- Application Repository: [https://github.com/Food-Ashur-s/Food-Ashurs/tree/master]
+- Chat Repository: [https://github.com/Food-Ashur-s/Food-Chat]
 __________________________________________________________________________________________________
 ## Architecture
-The base technologies are node.js server, node.http module, express middleware, and a mongo database
+The base technologies used in this application are `node.js`, it's built-in `http` module, `express.js` and it's middleware methods, and a `mongoDB` database
  ![alt text](assest/diagram.png) 
 
  ###### MiddleWare
- - basic auth middleware leverages two npm modules (bcrypt, jsonwebtoken
- - oauth middleware 
- - bearer middleware 
- - access control middleware 
- - A custom handle-errors module implements and extends the http-errors npm middleware package
+ - Basic authorization middleware leverages two npm modules: `bcrypt` and `jsonwebtoken`
+ - Custom built Google OAuth middleware 
+ - Custom built Bearer authentication middleware 
+ - Custom built access control middleware 
+ - A custom built error handling module that implements and extends the `http-errors` npm middleware package
 
  
-##### Model 
-- The Application has a Model as constructor as a dynamic model 
+##### Models
+- This application has a dynamic `Model` constructor for re-usability and scalability
 
 
  ###### Mongoose 
- Use this Method to create a new Schema in Mongo DataBase to execute CRUD operations on mongo documents.
+ - This application uses the following method to create a new `mongoose.Schema` in the MongoDB DataBase.  It is used to execute CRUD (create, read, update, and delete) operations on MongoDB documents.
 
  ![alt text](assest/mongoose-frame.PNG)
 
@@ -43,18 +43,18 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________
 
-## Wire-Frame
+## Wireframe UML
 wireFrame             |  checklist
 :-------------------------:|:-------------------------:
 ![alt text](assest/group.jpg) |   ![alt text](assest/group-check.jpg) 
 _________________________________________________________________________________________________
 
-## Trello
+## Trello Board
  Link: [https://trello.com/b/oxTEvJTl/food-ashurs]
 
 _______________________________________________________________________________________________
 
-## Tree of our Project
+## Application File Tree
 
 ```
 ├── package-lock.json
@@ -92,9 +92,9 @@ ________________________________________________________________________________
 
 {"username": "userone", "password": "userpassword", "email" : "userone@gmail.com" }
 
-This route will create a new user by providing a username, password, email in the body of the request. Creating a new user is required to store and access data later. This route must be completed before attempting to use the signin route.
+This route will create a new user by providing a username, password, and email in the body of the request. Creating a new user is required to store and access data later. This route must be completed before attempting to use the signin route.
 
-A token will be returned that will only be used for the api/signin route. after signing-in, you will receive a new token that will be a reference for all future routes.
+A token will be returned that will only be used for the api/signin route. After signing-in, you will receive a new token that will be a reference for all future routes.
 
 
 
@@ -108,7 +108,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 * Authorization header
 * Provide username and password as JSON
 
-This route will require an authorization header that needs to include the username:password of the specific user to be authenticated. Signing in will return a brand new token that will be used for future user ID reference.
+This route will require an authorization header that needs to include the `username:password` of the specific user to be authenticated. Signing in will return a brand new token that will be used for future user ID reference.
 
 
 * Example response:
@@ -119,7 +119,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF5bWFuamFtYWwxMTJAZ21haWw
 
 ### GET api/v1/users
 
-to Read the Users that signin on our application 
+To read the users information on signin of our application 
 
 Example response:
 ```javascript
@@ -162,7 +162,7 @@ Returns an object with 2 keys: count (number) and results (array of objects/reco
 
 ###### DELETE/api/v1/donot/ID
 - Takes an ID as a route parameter
-- Returns undefined or null (the record is no longer in the database
+- Returns `undefined` or `null` (the record is no longer in the database)
 
 #### Example response:
 ```javascript
@@ -197,9 +197,7 @@ Returns an object with 2 keys: count (number) and results (array of objects/reco
 
 ###### DELETE/api/v1/recipient/ID
 - Takes an ID as a route parameter
-- Returns undefined or null (the record is no longer in the database
-
-can get , post , update ,delete on this route.
+- Returns undefined or null (the record is no longer in the database)
 
 Example response:
 
@@ -219,14 +217,14 @@ Example response:
 ### Testing with mockRequest
 - jest
 - eslint
-#### test all the route and the CRUD method
+#### Tests all routes and their related CRUD operations
 
 ## Resources
 - Chat Channel :
 1. Resource: [https://github.com/LTUC/amman-javascript-401d1/tree/master/class-17]
 2. Resource: [https://www.youtube.com/watch?v=Ass3WWasUWo]
 - Google Api : [https://developers.google.com/identity/protocols/OAuth2]
-- swagger to test our App : [https://inspector.swagger.io/builder]
+- Swagger Inspector tool to test our API endpoints: [https://inspector.swagger.io/builder]
 
 ## Group Members
 - Ayman Khawaldeh : [https://github.com/aymankhawaldeh]
@@ -235,8 +233,9 @@ Example response:
 - As-Har Oran : [https://github.com/ASHARALORAN96]
 
 ## Communication:
- We will communicate and share resources through a group slack channel. We will organize tasks through Trello.
-We will host an internal check-in meeting each morning for each member to update the team on their progress on any/all tasks or deliverables. Any edits to the project plan will be made as a result of these check-ins. We will conclude with a reflection meeting and a final update of our Trello board. We will participate in daily standups with Instructors.
+We communicated and shared resources through a group Slack channel. We also organized tasks through the use of Trello.
 
-## Technology and Tools  :
- The Organization will be created by Nawal, with all other members added as admin users. The Github repository will be initialized by Travis, with all other members added as collaborators. The Trello board will be created by Nawal, with all other members added as admin users . We will deploy our web app through Heroku.
+We hosted an internal check-in meeting each morning, for each member, to update the team on their progress with any/all tasks or deliverables. Any edits to the project plan will be made as a result of these daily check-ins. We concluded each meeting with a reflection and afinal update of our Trello board.
+ 
+## Technology and Tools:
+The Organization was created by our team member Nawal, with all other members added as admin users. The Trello board was also created by Nawal, with all other members added as admin users for consistency in project management. Our application will soon be deployed on Heroku.
