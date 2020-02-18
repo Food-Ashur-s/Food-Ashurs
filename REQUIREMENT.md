@@ -30,7 +30,7 @@ ________________________________________________________________________________
 _________________________________________________________________________________________________
 
 ## Data Flow
- the user can sign up to let us take his information to the database and through that we hash his password and save it in the database   and when he sign in by write his information or by using google as an oauth he can take ability to provide or to take food from the app and when any donor provide food and the recipient search for food he can find it because we connect them by the type of food.
+ the user can sign up to let us take his information to the database and through that we hash his password and save it in the database   and when he sign in by writing his information or by using google as an oauth he can have the ability to provide or to take food from the app and when any donor provide food and the recipient search for the food he can find it because we connect them by the type of the food.
  ________________________________________________________________________________________________
 
  ## Non-Functional Requirements
