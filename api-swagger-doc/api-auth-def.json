@@ -1,0 +1,155 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Authentication Server",
+    "description" : "For signin / signup",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080"
+  } ],
+  "paths" : {
+    "/users" : {
+      "get" : {
+        "description" : "Get all uers information",
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/signin" : {
+      "post" : {
+        "description" : "signin with username,password,email and role",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "role" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "username" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n    \"username\": \"user2\",\n  \"password\": \"1\",\n  \"email\":\"user2@gmail.com\",\n  \"role\": \"recipient\"\n}"
+                },
+                "1" : {
+                  "value" : "{\n    \"username\": \"user2\",\n  \"password\": \"1\",\n  \"email\":\"user2@gmail.com\",\n  \"role\": \"recipient\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "content" : {
+              "text/html; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    },
+    "/signup" : {
+      "post" : {
+        "description" : "for signup using username,password,email and role",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "role" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "username" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n    \"username\": \"user1\",\n  \"password\": \"123\",\n  \"email\":\"user1@gmail.com\",\n  \"role\": \"donor\"\n}"
+                },
+                "1" : {
+                  "value" : "{\n    \"username\": \"user2\",\n  \"password\": \"1\",\n  \"email\":\"user2@gmail.com\",\n  \"role\": \"recipient\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Passed",
+            "content" : {
+              "text/html; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:8080"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:8080"
+      } ]
+    }
+  },
+  "components" : {
+    "securitySchemes" : {
+      "basic" : {
+        "type" : "http",
+        "scheme" : "basic"
+      }
+    }
+  }
+}
