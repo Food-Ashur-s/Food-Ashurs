@@ -1,5 +1,5 @@
 # Food-Ashurs
-- Application that takes extra food from local restaurants and gives it to people or charities of need.  This helps save wasted food and assists in the wellness of the local community. 
+- Application that takes extra food from local restaurants and gives it to people or charities of need.  This helps save wasted food and assists in the wellness of the local community.
 
 _________________________________________________________________________________________________
 
@@ -9,9 +9,12 @@ ________________________________________________________________________________
 
 - Application Repository: [https://github.com/Food-Ashur-s/Food-Ashurs/tree/master]
 - Chat Repository: [https://github.com/Food-Ashur-s/Food-Chat]
+
 __________________________________________________________________________________________________
+
 ## Architecture
-The base technologies used in this application are `node.js`, it's built-in `http` module, `express.js` and it's middleware methods, and a `mongoDB` database
+The base technologies used in this application are `node.js`, it's built-in `http` module, `express.js` and it's middleware methods, and a `mongoDB` database:
+
  ![alt text](assest/diagram.png) 
 
  ###### MiddleWare
@@ -21,17 +24,13 @@ The base technologies used in this application are `node.js`, it's built-in `htt
  - Custom built access control middleware 
  - A custom built error handling module that implements and extends the `http-errors` npm middleware package
 
- 
 ##### Models
 - This application has a dynamic `Model` constructor for re-usability and scalability
-
 
  ###### Mongoose 
  - This application uses the following method to create a new `mongoose.Schema` in the MongoDB DataBase.  It is used to execute CRUD (create, read, update, and delete) operations on MongoDB documents.
 
  ![alt text](assest/mongoose-frame.PNG)
-
-
 
 __________________________________________________________________________________________________
 
@@ -40,7 +39,6 @@ ________________________________________________________________________________
 #### Currently Deployed Schema Diagram
  ![alt text](assest/schema.PNG)
 
-
 __________________________________________________________________________________________________
 
 ## Wireframe UML
@@ -48,6 +46,7 @@ wireFrame             |  checklist
 :-------------------------:|:-------------------------:
 ![alt text](assest/group.jpg) |   ![alt text](assest/group-check.jpg) 
 _________________________________________________________________________________________________
+
 
 ## Trello Board
  Link: [https://trello.com/b/oxTEvJTl/food-ashurs]
