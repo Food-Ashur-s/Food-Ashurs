@@ -239,4 +239,4 @@ Example response:
 We will host an internal check-in meeting each morning for each member to update the team on their progress on any/all tasks or deliverables. Any edits to the project plan will be made as a result of these check-ins. We will conclude with a reflection meeting and a final update of our Trello board. We will participate in daily standups with Instructors.
 
 ## Technology and Tools  :
- The Organization will be created by Nawal, with all other members added as admin users. The Github repository will be initialized by Travis, with all other members added as collaborators. The Trello board will be created by Nawal, with all other members added as admin users. We will deploy our web app through Heroku.
+ The Organization will be created by Nawal, with all other members added as admin users. The Github repository will be initialized by Travis, with all other members added as collaborators. The Trello board will be created by Nawal, with all other members added as admin users . We will deploy our web app through Heroku.
