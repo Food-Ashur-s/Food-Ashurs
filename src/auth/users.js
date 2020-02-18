@@ -20,17 +20,9 @@ const users = new mongoose.Schema({
   role: {type: String, required: true, enum:['donor', 'recipient']},
 });
 
-// const capabilities = {
-//   admin: ['read, create, update, delete'],
-//   editor: ['read, create, update'],
-//   user: ['read'],
-// };
+
 users.statics.checkCapabilities = (capability, role)=>{
   console.log(capability, role);
-  // let arr = [];
-  // Object.values(capabilities).forEach(val=>{
-  //   arr.push(val.includes(capability));
-  // });
   let admin = ['read, create, update, delete'];
   let editor = ['read, create, update'];
   let user = ['read'];
@@ -50,9 +42,7 @@ users.statics.checkCapabilities = (capability, role)=>{
       if(user[i]) return true;
     }
   }
-  // Object.values(capabilities).forEach(val=>{
-  //   console.log(val.includes(capability));
-  // });
+
 };
 users.pre('save', async function(){
   if (!users.username) {
@@ -121,10 +111,7 @@ users.methods.generateToken = function(user) {
   };
   console.log(userData);
   let token = jwt.sign(userData, process.env.SECRET);
-  // console.log('klllllllllllllllllllllllll',token);
   return token;
-  // let token = jwt.sign({ username: user.username}, process.env.SECRET);
-  // return token;
 };
 
 /**
