@@ -23,7 +23,7 @@ our stretch goal is to make a chat between the recipients and the donors.
 _________________________________________________________________________________________________
 
 ## Functional Requirements
- 1. the donor and the recipient can create account for them.
+ 1. the donor and the recipient can create an account for them.
  2. the donor can take food which he needs from the recipient
  3. the donor can post a food to let the recipient take it.
  4. the donor and the recipient can update and delete them information. 
