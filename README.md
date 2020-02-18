@@ -21,6 +21,8 @@ The base technologies are node.js server, node.http module, express middleware, 
  - A custom handle-errors module implements and extends the http-errors npm middleware package
 
  
+##### Model 
+- The Application has a Model as constructor as a dynamic model 
 
 
  ###### Mongoose 
