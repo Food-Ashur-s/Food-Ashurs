@@ -75,6 +75,7 @@ authRouter.get('/oauth', (req,res,next) => {
  * @returns {object} 200 -
  */
 authRouter.get('/user', bearerAuth, (req, res) => {
+  console.log(req);
   res.status(200).json(req.user);
 });
 

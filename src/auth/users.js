@@ -115,7 +115,8 @@ users.methods.passCompare = function(password) {
  */
 users.methods.generateToken = function(user) {
   let userData = {
-    username: user.email,
+    username: user.username,
+    userEamil: user.email,
     capabilities: user.role,
   };
   console.log(userData);
