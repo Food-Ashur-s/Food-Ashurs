@@ -159,7 +159,7 @@ Returns an object with 2 keys: count (number) and results (array of objects/reco
 - Accepts a full record, including id, to be updated as the request body
 - Returns a single object (the record as updated in the database)
 
-###### DELETE/api/v1/donot/ID
+###### DELETE/api/v1/donor/ID
 - Takes an ID as a route parameter
 - Returns `undefined` or `null` (the record is no longer in the database)
 
